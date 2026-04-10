@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart — ShopZone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="header-top">
+  <strong>Summer Sale</strong> — Up to 50% off sitewide. Free shipping on orders over $50. Use code <strong>SAVE10</strong>
+</div>
+
+<header>
+  <div class="container">
+    <div class="header-main">
+      <a href="index.html" class="logo">Shop<span>Zone</span></a>
+      <div class="search-bar">
+        <input type="text" placeholder="Search products, brands, categories…">
+        <button aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <div class="header-actions">
+        <a href="login.html" class="header-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div class="btn-label"><small>Hello, Sign in</small><span>Account</span></div>
+        </a>
+        <a href="wishlist.html" class="header-btn icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <div class="btn-label"><small>Saved items</small><span>Wishlist</span></div>
+          <span class="badge wishlist-count">0</span>
+        </a>
+        <a href="cart.html" class="header-btn icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <div class="btn-label"><small>Your cart</small><span>Cart</span></div>
+          <span class="badge cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-dropdown">
+          <a href="products.html" class="nav-link">Shop
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="products.html?cat=electronics"><div class="dm-icon"><img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=40&h=40&fit=crop&auto=format" alt=""></div>Electronics</a>
+            <a href="products.html?cat=fashion"><div class="dm-icon"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=40&h=40&fit=crop&auto=format" alt=""></div>Fashion</a>
+            <a href="products.html?cat=home"><div class="dm-icon"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=40&h=40&fit=crop&auto=format" alt=""></div>Home &amp; Living</a>
+            <a href="products.html?cat=sports"><div class="dm-icon"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=40&h=40&fit=crop&auto=format" alt=""></div>Sports &amp; Fitness</a>
+            <a href="products.html?cat=beauty"><div class="dm-icon"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=40&h=40&fit=crop&auto=format" alt=""></div>Beauty &amp; Care</a>
+          </div>
+        </div>
+        <a href="products.html" class="nav-link">New Arrivals</a>
+        <a href="products.html?sale=1" class="nav-link" style="color:#ef4444;font-weight:600">Sale</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Shopping Cart</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>Cart</span>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:40px;padding-bottom:60px">
+  <div class="cart-layout">
+    <div>
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cartBody"></tbody>
+      </table>
+      <div style="display:flex;justify-content:space-between;margin-top:20px;flex-wrap:wrap;gap:10px">
+        <a href="products.html" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          Continue Shopping
+        </a>
+        <button class="btn btn-dark" onclick="renderCart()">Update Cart</button>
+      </div>
+    </div>
+
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <div class="summary-row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+      <div class="summary-row"><span>Shipping</span><span id="shipping-cost">Free</span></div>
+      <div class="summary-row"><span>Tax (8%)</span><span id="tax">$0.00</span></div>
+      <div class="coupon-form">
+        <input type="text" placeholder="Coupon code">
+        <button onclick="showToast('Coupon applied!')">Apply</button>
+      </div>
+      <div class="summary-row total"><span>Total</span><span id="total">$0.00</span></div>
+      <a href="checkout.html" class="btn btn-primary" style="width:100%;text-align:center;margin-top:16px;display:block">Proceed to Checkout</a>
+      <div style="text-align:center;margin-top:12px;font-size:12px;color:var(--gray);display:flex;align-items:center;justify-content:center;gap:6px">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Secure checkout
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Shop<span>Zone</span></div>
+        <p>Your one-stop destination for premium products at great prices. Fast delivery, easy returns, and world-class support.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><ul><li><a href="products.html">All Products</a></li><li><a href="products.html?cat=electronics">Electronics</a></li><li><a href="products.html?cat=fashion">Fashion</a></li><li><a href="products.html?cat=home">Home &amp; Living</a></li><li><a href="products.html?sale=1">Sale</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="contact.html">Contact Us</a></li><li><a href="#">FAQ</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Returns &amp; Refunds</a></li><li><a href="#">Track Order</a></li></ul></div>
+      <div class="footer-col"><h4>Account</h4><ul><li><a href="login.html">Sign In</a></li><li><a href="register.html">Create Account</a></li><li><a href="orders.html">My Orders</a></li><li><a href="wishlist.html">Wishlist</a></li><li><a href="profile.html">Profile</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ShopZone. All rights reserved.</p>
+      <div style="display:flex;gap:16px"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+      <div class="payment-icons"><span>VISA</span><span>MC</span><span>PayPal</span><span>Apple Pay</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+const productImages = {
+  p1: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=112&h=112&fit=crop&auto=format',
+  p2: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=112&h=112&fit=crop&auto=format',
+  p3: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=112&h=112&fit=crop&auto=format',
+  p4: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=112&h=112&fit=crop&auto=format',
+  p5: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=112&h=112&fit=crop&auto=format',
+  p6: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=112&h=112&fit=crop&auto=format',
+  p7: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=112&h=112&fit=crop&auto=format',
+  p8: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=112&h=112&fit=crop&auto=format'
+};
+const fallbackImg = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=112&h=112&fit=crop&auto=format';
+
+function renderCart() {
+  const body = document.getElementById('cartBody');
+  if (!cart.length) {
+    body.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:40px;color:var(--gray)">Your cart is empty. <a href="products.html" style="color:var(--primary)">Start shopping!</a></td></tr>';
+    document.getElementById('subtotal').textContent = '$0.00';
+    document.getElementById('tax').textContent = '$0.00';
+    document.getElementById('total').textContent = '$0.00';
+    document.getElementById('shipping-cost').textContent = 'Free';
+    return;
+  }
+  let subtotal = 0;
+  body.innerHTML = cart.map(item => {
+    const itemTotal = item.price * item.qty;
+    subtotal += itemTotal;
+    const imgSrc = productImages[item.id] || fallbackImg;
+    return `<tr>
+      <td><div class="cart-product">
+        <div class="cart-product-img"><img src="${imgSrc}" style="width:100%;height:100%;object-fit:cover;border-radius:6px" alt="${item.name}"></div>
+        <div class="cart-product-info"><h4>${item.name}</h4></div>
+      </div></td>
+      <td>$${item.price.toFixed(2)}</td>
+      <td><div class="cart-qty">
+        <button onclick="changeQty('${item.id}',-1)">&#8722;</button>
+        <input type="number" value="${item.qty}" min="1" onchange="setQty('${item.id}',this.value)">
+        <button onclick="changeQty('${item.id}',1)">+</button>
+      </div></td>
+      <td><strong>$${itemTotal.toFixed(2)}</strong></td>
+      <td><button class="remove-btn" onclick="removeItem('${item.id}')" aria-label="Remove item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+      </button></td>
+    </tr>`;
+  }).join('');
+  const tax = subtotal * 0.08;
+  const shipping = subtotal >= 50 ? 0 : 9.99;
+  document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
+  document.getElementById('shipping-cost').textContent = shipping === 0 ? 'Free' : '$' + shipping.toFixed(2);
+  document.getElementById('tax').textContent = '$' + tax.toFixed(2);
+  document.getElementById('total').textContent = '$' + (subtotal + tax + shipping).toFixed(2);
+}
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (item) { item.qty = Math.max(1, item.qty + delta); saveCart(); renderCart(); }
+}
+function setQty(id, val) {
+  const item = cart.find(i => i.id === id);
+  if (item) { item.qty = Math.max(1, parseInt(val) || 1); saveCart(); renderCart(); }
+}
+function removeItem(id) {
+  cart = cart.filter(i => i.id !== id);
+  saveCart(); renderCart();
+}
+document.addEventListener('DOMContentLoaded', renderCart);
+</script>
+</body>
+</html>
